@@ -10,7 +10,7 @@ beats-concrete-numbers
 
 ### beats-concrete-numbers — Beats should count spoken numbers as concrete
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - spoken numbers like 'five hours' are counted as concrete beats
