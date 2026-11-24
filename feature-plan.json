@@ -1,1 +1,38 @@
-{"schema_version":1,"current_feature":"beats-concrete-numbers","features":[{"id":"beats-concrete-numbers","title":"Beats should count spoken numbers as concrete","status":"planned","acceptance":["spoken numbers like 'five hours' are counted as concrete beats","PROPER regex uses lookbehind to avoid counting capitalized start-of-sentence words as proper names","swipe --out works with bare filenames without crashing"],"implementation":["skills/ig-reel/beats.py","scripts/beats_fix.py"],"tests":["tests/test_beats_concrete.py"]},{"id":"swipe-bare-filename","title":"swipe.py --out crash on bare filename","status":"planned","acceptance":["python3 skills/ig-reel/swipe.py captured.tsv --out swipe.md works with any filename","no FileNotFoundError on os.makedirs(os.path.dirname(path))"],"implementation":["scripts/swipe.py"],"tests":["tests/test_swipe_bare.py"]}]}
+{
+  "schema_version": 1,
+  "current_feature": "beats-concrete-numbers",
+  "features": [
+    {
+      "id": "beats-concrete-numbers",
+      "title": "Beats should count spoken numbers as concrete",
+      "status": "in_progress",
+      "acceptance": [
+        "spoken numbers like 'five hours' are counted as concrete beats",
+        "PROPER regex uses lookbehind to avoid counting capitalized start-of-sentence words as proper names",
+        "swipe --out works with bare filenames without crashing"
+      ],
+      "implementation": [
+        "skills/ig-reel/beats.py",
+        "scripts/beats_fix.py"
+      ],
+      "tests": [
+        "tests/test_beats_concrete.py"
+      ]
+    },
+    {
+      "id": "swipe-bare-filename",
+      "title": "swipe.py --out crash on bare filename",
+      "status": "planned",
+      "acceptance": [
+        "python3 skills/ig-reel/swipe.py captured.tsv --out swipe.md works with any filename",
+        "no FileNotFoundError on os.makedirs(os.path.dirname(path))"
+      ],
+      "implementation": [
+        "scripts/swipe.py"
+      ],
+      "tests": [
+        "tests/test_swipe_bare.py"
+      ]
+    }
+  ]
+}
