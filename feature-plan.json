@@ -12,7 +12,7 @@
         "swipe --out works with bare filenames without crashing"
       ],
       "implementation": [
-        "skills/ig-reel/beats.py",
+        "skills/ig_reel/beats.py",
         "scripts/beats_fix.py"
       ],
       "tests": [
@@ -24,7 +24,7 @@
       "title": "swipe.py --out crash on bare filename",
       "status": "planned",
       "acceptance": [
-        "python3 skills/ig-reel/swipe.py captured.tsv --out swipe.md works with any filename",
+        "python3 skills/ig_reel/swipe.py captured.tsv --out swipe.md works with any filename",
         "no FileNotFoundError on os.makedirs(os.path.dirname(path))"
       ],
       "implementation": [

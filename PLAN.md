@@ -17,7 +17,7 @@ Acceptance:
 - PROPER regex uses lookbehind to avoid counting capitalized start-of-sentence words as proper names
 - swipe --out works with bare filenames without crashing
 
-Implementation: `skills/ig-reel/beats.py`, `scripts/beats_fix.py`
+Implementation: `skills/ig_reel/beats.py`, `scripts/beats_fix.py`
 
 Tests: `tests/test_beats_concrete.py`
 
@@ -26,7 +26,7 @@ Tests: `tests/test_beats_concrete.py`
 Status: planned
 
 Acceptance:
-- python3 skills/ig-reel/swipe.py captured.tsv --out swipe.md works with any filename
+- python3 skills/ig_reel/swipe.py captured.tsv --out swipe.md works with any filename
 - no FileNotFoundError on os.makedirs(os.path.dirname(path))
 
 Implementation: `scripts/swipe.py`
