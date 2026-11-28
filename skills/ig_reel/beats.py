@@ -7,8 +7,8 @@ a spoken number (e.g., "five hours") or a capitalized proper name (not at start
 of sentence).
 
 Usage:
-    python3 skills/ig-reel/beats.py s.txt
-    python3 skills/ig-reel/beats.py s.txt --json
+    python3 skills/ig_reel/beats.py s.txt
+    python3 skills/ig_reel/beats.py s.txt --json
 """
 
 import re
@@ -62,12 +62,21 @@ def analyze_beat(beat_text: str) -> dict:
     }
 
 
-def main():
-    if len(sys.argv) < 2:
+def main(argv=None):
+    """Count concrete beats in a text script.
+
+    Usage:
+        python3 skills/ig_reel/beats.py s.txt
+        python3 skills/ig_reel/beats.py s.txt --json
+    """
+    import sys
+    if argv is None:
+        argv = sys.argv
+    if len(argv) < 2:
         print("Usage: beats.py <file> [--json]")
         sys.exit(1)
 
-    path = pathlib.Path(sys.argv[1])
+    path = pathlib.Path(argv[1])
     if not path.exists():
         print(f"File not found: {path}")
         sys.exit(1)
@@ -89,11 +98,16 @@ def main():
         1 for _, _, _, prop in results if " (concrete)" in prop
     )
 
-    print(f"Total beats: {total_beats}")
-    print(f"Concrete markers: {total_concrete}")
-    print(f"Abstract runs: {total_beats - total_concrete}")
-    for beat_num, beat_text, status, prop in results:
-        print(f"  Beat {beat_num}: {beat_text!r} -> {status}{prop}")
+    if "--json" in argv:
+        import json
+        output = {"total_beats": total_beats, "total_concrete": total_concrete}
+        print(json.dumps(output))
+    else:
+        print(f"Total beats: {total_beats}")
+        print(f"Concrete markers: {total_concrete}")
+        print(f"Abstract runs: {total_beats - total_concrete}")
+        for beat_num, beat_text, status, prop in results:
+            print(f"  Beat {beat_num}: {beat_text!r} -> {status}{prop}")
 
 
 if __name__ == "__main__":
